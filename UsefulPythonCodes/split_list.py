@@ -15,3 +15,4 @@ def split_list(list_to_split, n_max):
 list_to_split = [1, 2, 3, 4, 5]
 n_max = 2
 print(split_list(list_to_split, n_max))
+
