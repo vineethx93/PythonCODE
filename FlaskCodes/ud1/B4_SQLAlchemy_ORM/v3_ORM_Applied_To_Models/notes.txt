@@ -1,0 +1,13 @@
+ORM will return None is there are no matching values
+eg.
+user = UserModel.query.filter_by(username=username).first()
+this will return an object of UserModel Class if exists
+if not found then will return None
+
+In Model classes.. use as classmethod(cls) for methods that are not processing an incoming object of that class
+If that method is processing/accessing/act-on an incoming object of that class then use object methods(self)
+eg:
+find_by_name(username) <- classmethod
+upsert(object) <- object method (since its working on the object itself ie.. obj.upsert())
+
+

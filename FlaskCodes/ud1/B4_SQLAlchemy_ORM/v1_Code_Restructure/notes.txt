@@ -1,0 +1,19 @@
+resources package should contain only the modules with Resource classes ie.. # class Xyz(Resource)
+any non-resource class should be removed from these modules before moving to the resources package(good practice)
+
+A resource is:
+ - what an API think of,
+ - things that clients can ask for,
+ - things an API response with
+ - eg.. users, items, stores, students..
+ - an EXTERNAL representation of an entity
+
+A model is:
+ - is something like a helper class to store some data
+ - also may contain some methods to work on those data
+ - our INTERNAL representation of an ENTITY
+ - what gives us more flexibility in the program without polluting the "Resources"
+
+methods that are not called by any API must be moved outside of resource class
+and should be included in a proper model class
+

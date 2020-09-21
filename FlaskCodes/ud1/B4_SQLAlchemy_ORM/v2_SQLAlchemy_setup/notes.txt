@@ -1,0 +1,2 @@
+
+all model classes should extend the db.Model of the SQLAlchemy in order to use those models with SQLAlchemy
