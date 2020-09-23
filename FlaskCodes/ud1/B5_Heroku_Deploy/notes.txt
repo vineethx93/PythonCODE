@@ -1,0 +1,2 @@
+creating runtime.txt, requirements.txt, uwsgi.ini and Procfile for heroku.
+creating run.py to avoid circular import.. so the app running must be changed from app:app to run:app
