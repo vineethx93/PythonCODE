@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
@@ -28,8 +29,17 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 # tell the sqlalchemy where to find the database
 # data.db should be in the same folder/package as app.py
 # THIS WILL ALSO CREATE A data.db AT RUNTIME IF NOT ALREADY EXISTNG
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 # can use url for other database systems here to connect to them instead
+
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ynhckrushmwuqx:85fb755d7a11b694606c7370c07efe00baaf9a3860aee4bbf59b4e52503cc010@ec2-54-75-229-28.eu-west-1.compute.amazonaws.com:5432/d9eonfs8s8hoi6'
+# OR
+# since the heroku will the url as an os environment variable when we add the addon of postgres
+# we can simple use the environment variable as follows
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+# if we want to run in local then give the sqlite also
+# here the get method fails and return the default sqlite conn. string
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 
 # this will turnoff the flask-sqlalchemy modification tracker
 # But NOT the sqlalchemy(main library) builtin modification tracker(which is better)
